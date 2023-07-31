@@ -179,7 +179,36 @@ export default function IndexPage() {
     })
   }
 
+  const generateGrapeRegionRow = (grape: GrapeWithRegion, grapesWithRegions: _.Dictionary<GrapeWithRegion[]>) => {
+    const subGrapeWithRegions = _.orderBy(grapesWithRegions[grape.name], g => g.country + g.region);
+    return subGrapeWithRegions.map((gr, idx) => {
+      return (<tr key={gr.order}>
+        {idx == 0 ? <td rowSpan={subGrapeWithRegions.length}><Title order={6}>{gr.name}</Title></td> : <></>}
+        <td>{gr.country}</td>
+        <td>{gr.region}</td>
+        <td>{gr.regionalCharacteristics}</td>
+      </tr>)
+    })
+  }
+
+  const generateRegionGrapeRow = (region: GrapeWithRegion, regionsWithGrapes: _.Dictionary<GrapeWithRegion[]>) => {
+    const subRegionWithGrapes = _.orderBy(regionsWithGrapes[region.country + region.region], g => g.name);
+    return subRegionWithGrapes.map((gr, idx) => {
+      return (<tr key={gr.order}>
+        {idx == 0 ? <td rowSpan={subRegionWithGrapes.length}>{gr.country}</td> : <></>}
+        {idx == 0 ? <td rowSpan={subRegionWithGrapes.length}>{gr.region}</td> : <></>}
+        <td><Title order={6}>{gr.name}</Title></td>
+        <td>{gr.regionalCharacteristics}</td>
+      </tr>)
+    })
+  }
+
   const uniqueGrapes = _.chain(grapes).uniqBy(g => g.name).orderBy(g => g.order).value();
+  const grapesWithRegions = _.chain(grapes).groupBy(g => g.name).value();
+
+  const uniqueRegions = _.chain(grapes).uniqBy(g => g.country + g.region).orderBy(g => g.country + g.region).value();
+  const regionsWithGrapes = _.chain(grapes).groupBy(g => g.country + g.region).value();
+
   return (
     <Container size={"xl"}>
       <Title order={1} my={15}>Grape varieties</Title>
@@ -204,6 +233,42 @@ export default function IndexPage() {
           </tbody>
         </Table>
       </ScrollArea>
+
+      <Title order={1} my={15}>Grapes and regions</Title>
+      <Title order={2} my={5}>By grape</Title>
+      <ScrollArea h={"85vh"} type="always">
+        <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true}>
+          <thead style={{ position: "sticky", top: 0, background: "white" }}>
+            <tr>
+              <th>Grape</th>
+              <th>Country</th>
+              <th>Region</th>
+              <th>Characteristics</th>
+            </tr>
+          </thead>
+          <tbody>
+            {uniqueGrapes.map((grape) => generateGrapeRegionRow(grape, grapesWithRegions))}
+          </tbody>
+        </Table>
+      </ScrollArea>
+
+      <Title order={2} my={5}>By region</Title>
+      <ScrollArea h={"85vh"} type="always">
+        <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true}>
+          <thead style={{ position: "sticky", top: 0, background: "white" }}>
+            <tr>
+              <th>Country</th>
+              <th>Region</th>
+              <th>Grape</th>
+              <th>Characteristics</th>
+            </tr>
+          </thead>
+          <tbody>
+            {uniqueRegions.map((region) => generateRegionGrapeRow(region, regionsWithGrapes))}
+          </tbody>
+        </Table>
+      </ScrollArea>
+
       <Title order={1} my={15}>Important numbers</Title>
       <Title order={2} my={5}>Alcohol</Title>
       <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true} maw={"200px"}>
