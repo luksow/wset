@@ -321,6 +321,19 @@ export default function IndexPage() {
           </tr>
         </tbody>
       </Table>
+      <Title order={2} my={5}>Fermentation</Title>
+      <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true} maw={"200px"}>
+        <tbody>
+          <tr>
+            <td>White or rosé wines</td>
+            <td>12°C - 22°C</td>
+          </tr>
+          <tr>
+            <td>Red wines</td>
+            <td>20°C - 32°C</td>
+          </tr>
+        </tbody>
+      </Table>
       <Title order={2} my={5}>Serving temperatures</Title>
       <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true} maw={"600px"}>
         <thead>
@@ -333,32 +346,32 @@ export default function IndexPage() {
         <tbody>
           <tr>
             <td>Well chilled</td>
-            <td>6 - 8°C</td>
+            <td>6°C - 8°C</td>
             <td>Sweet wine</td>
           </tr>
           <tr>
             <td>Well chilled</td>
-            <td>6 - 10°C</td>
+            <td>6°C - 10°C</td>
             <td>Sparking wine</td>
           </tr>
           <tr>
             <td>Chilled</td>
-            <td>7 - 10°C</td>
+            <td>7°C - 10°C</td>
             <td>Light-, medium-bodied white or rose</td>
           </tr>
           <tr>
             <td>Lightly chilled</td>
-            <td>10 - 13°C</td>
+            <td>10°C - 13°C</td>
             <td>Full-bodied white</td>
           </tr>
           <tr>
             <td>Room temperature or lightly chilled</td>
-            <td>13 - 18°C</td>
+            <td>13°C - 18°C</td>
             <td>Light-bodied red</td>
           </tr>
           <tr>
             <td>Room temperature</td>
-            <td>13 - 18°C</td>
+            <td>15°C - 18°C</td>
             <td>Medium-, full-bodied red</td>
           </tr>
         </tbody>
