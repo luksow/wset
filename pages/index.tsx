@@ -271,7 +271,7 @@ export default function IndexPage() {
 
       <Title order={1} my={15}>Important numbers</Title>
       <Title order={2} my={5}>Alcohol</Title>
-      <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true} maw={"200px"}>
+      <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true} maw={"250px"}>
         <tbody>
           <tr>
             <td>Low</td>
@@ -288,7 +288,7 @@ export default function IndexPage() {
         </tbody>
       </Table>
       <Title order={4} pt={5}>Fortified wines</Title>
-      <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true} maw={"200px"}>
+      <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true} maw={"250px"}>
         <tbody>
           <tr>
             <td>Low</td>
@@ -305,7 +305,7 @@ export default function IndexPage() {
         </tbody>
       </Table>
       <Title order={2} my={5}>Climate</Title>
-      <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true} maw={"200px"}>
+      <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true} maw={"250px"}>
         <tbody>
           <tr>
             <td>Cool</td>
@@ -322,7 +322,7 @@ export default function IndexPage() {
         </tbody>
       </Table>
       <Title order={2} my={5}>Fermentation</Title>
-      <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true} maw={"200px"}>
+      <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true} maw={"250px"}>
         <tbody>
           <tr>
             <td>White or rosé wines</td>
