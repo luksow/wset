@@ -1,6 +1,7 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
+import Script from 'next/script'
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -15,6 +16,16 @@ export default function App(props: AppProps) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-1938LGDNQD" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-1938LGDNQD');
+        `}
+      </Script>
 
       <MantineProvider
         withGlobalStyles
