@@ -376,8 +376,10 @@ export default function IndexPage() {
           </tr>
         </tbody>
       </Table>
+      <Title my={15} order={1}>Error? Missing information?</Title>
+      <Text>You can report any issues <Anchor href="https://github.com/luksow/wset/issues" target="_blank">here</Anchor> or <Anchor href="https://luksow.com" target="_blank">directly to me.</Anchor></Text>
       <Title my={15} order={1}>Acknowledgments</Title>
-      <Text>Prepared based on <q>Wines: Looking behind the label</q> and <q>WSET® Level 2 Award in Wines Workbook</q> by WSET. Special thanks to <Anchor href='https://republikawina.pl/' target="blank">Republika Wina</Anchor> and my study group for the greatest WSET 2 experience.</Text>
+      <Text>Prepared based on <q>Wines: Looking behind the label</q> and <q>WSET® Level 2 Award in Wines Workbook</q> by WSET. Special thanks to <Anchor href='https://republikawina.pl/' target="_blank">Republika Wina</Anchor> and my study group for the greatest WSET 2 experience.</Text>
       <Divider my={20} size={5} variant="dashed" label="Brought to you with ❤️ by @luksow" labelProps={{ component: 'a', href: 'https://www.luksow.com', target: "_blank", variant: 'link', color: 'blue' }}/>
     </Container>
   );
