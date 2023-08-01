@@ -2302,5 +2302,53 @@
         "country": "France",
         "region": "Burgundy",
         "characteristics": null
+    },
+    {
+        "order": 8,
+        "name": "Sauvignon blanc",
+        "climate": "Cool,Moderate",
+        "acidity": "High",
+        "tannins": "",
+        "sweetness": "Dry",
+        "body": "Light,Medium",
+        "flavour": "Herbaceous, floral (grass, green bell pepper, asparagus);Just ripe: green fruits (apple, gooseberry), wet stones;Ripe: tropical fruit (passion fruit)",
+        "oak": "Typically unoaked",
+        "additional_characteristics": "Aromatic variety;Typically single varietal;Sometimes blended with sémillon\/semillon",
+        "aging": "For early drinking",
+        "country": "France",
+        "region": "Loire Valley, Sancerre",
+        "characteristics": "dry, high acidity, green fruit (apple), herbaceous notes (asparagus, grass), sometimes wet stones"
+    },
+    {
+        "order": 8,
+        "name": "Sauvignon blanc",
+        "climate": "Cool,Moderate",
+        "acidity": "High",
+        "tannins": "",
+        "sweetness": "Dry",
+        "body": "Light,Medium",
+        "flavour": "Herbaceous, floral (grass, green bell pepper, asparagus);Just ripe: green fruits (apple, gooseberry), wet stones;Ripe: tropical fruit (passion fruit)",
+        "oak": "Typically unoaked",
+        "additional_characteristics": "Aromatic variety;Typically single varietal;Sometimes blended with sémillon\/semillon",
+        "aging": "For early drinking",
+        "country": "France",
+        "region": "Loire Valley, Touraine",
+        "characteristics": "fruity, inexpensive"
+    },
+    {
+        "order": 8,
+        "name": "Sauvignon blanc",
+        "climate": "Cool,Moderate",
+        "acidity": "High",
+        "tannins": "",
+        "sweetness": "Dry",
+        "body": "Light,Medium",
+        "flavour": "Herbaceous, floral (grass, green bell pepper, asparagus);Just ripe: green fruits (apple, gooseberry), wet stones;Ripe: tropical fruit (passion fruit)",
+        "oak": "Typically unoaked",
+        "additional_characteristics": "Aromatic variety;Typically single varietal;Sometimes blended with sémillon\/semillon",
+        "aging": "For early drinking",
+        "country": "France",
+        "region": "Loire Valley, Pouilly–Fumé",
+        "characteristics": "dry, high acidity, green fruit (apple), herbaceous notes (asparagus, grass), sometimes wet stones"
     }
 ]
