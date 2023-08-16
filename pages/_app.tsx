@@ -31,6 +31,13 @@ export default function App(props: AppProps) {
         withGlobalStyles
         withNormalizeCSS
         theme={{
+          globalStyles: (theme) => ({
+            table: { "page-break-after": "always" },
+            tr:    { "page-break-inside": "avoid", "page-break-after": "auto" },
+            td:    { "page-break-inside": "avoid", "page-break-after": "auto" },
+            thead: { "display": "table-header-group" },
+            tfoot: { "display": "table-footer-group" }
+          }),
           /** Put your mantine theme override here */
           // colorScheme: "dark",
         }}

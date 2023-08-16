@@ -1,6 +1,7 @@
 import { Title, Container, Table, Anchor, Badge, ScrollArea, Divider, Text } from "@mantine/core";
 import * as _ from 'lodash';
 import grapesRaw from "./grapes.json";
+import { useRouter } from 'next/router';
 
 type GrapeRaw = {
   order: number,
@@ -209,12 +210,38 @@ export default function IndexPage() {
   const uniqueRegions = _.chain(grapes).uniqBy(g => g.country + g.region).orderBy(g => g.country + g.region).value();
   const regionsWithGrapes = _.chain(grapes).groupBy(g => g.country + g.region).value();
 
+  const router = useRouter();
+  const printable = router.query.printable != undefined;
+
   return (
     <Container size={"xl"}>
       <Title order={1} my={15}>Grape varieties</Title>
-      <ScrollArea h={"85vh"} type="always">
+      {!printable &&
+        <ScrollArea h={"85vh"} type="always">
+          <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true}>
+            <thead style={{ position: "sticky", top: 0, background: "white" }}>
+              <tr>
+                <th>Grape</th>
+                <th>Climate</th>
+                <th>Acidity</th>
+                <th>Tannins</th>
+                <th>Sweetness</th>
+                <th>Body</th>
+                <th>Flavour</th>
+                <th>Oak</th>
+                <th>Characteristics</th>
+                <th>Aging</th>
+              </tr>
+            </thead>
+            <tbody>
+              {uniqueGrapes.map((grape) => generateGrapeRow(grape))}
+            </tbody>
+          </Table>
+        </ScrollArea>
+      }
+      {printable &&
         <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true}>
-          <thead style={{ position: "sticky", top: 0, background: "white" }}>
+          <thead>
             <tr>
               <th>Grape</th>
               <th>Climate</th>
@@ -232,13 +259,30 @@ export default function IndexPage() {
             {uniqueGrapes.map((grape) => generateGrapeRow(grape))}
           </tbody>
         </Table>
-      </ScrollArea>
+      }
 
       <Title order={1} my={15}>Grapes and regions</Title>
       <Title order={2} my={5}>By grape</Title>
-      <ScrollArea h={"85vh"} type="always">
+      {!printable &&
+        <ScrollArea h={"85vh"} type="always">
+          <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true}>
+            <thead style={{ position: "sticky", top: 0, background: "white" }}>
+              <tr>
+                <th>Grape</th>
+                <th>Country</th>
+                <th>Region</th>
+                <th>Characteristics</th>
+              </tr>
+            </thead>
+            <tbody>
+              {uniqueGrapes.map((grape) => generateGrapeRegionRow(grape, grapesWithRegions))}
+            </tbody>
+          </Table>
+        </ScrollArea>
+      }
+      {printable &&
         <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true}>
-          <thead style={{ position: "sticky", top: 0, background: "white" }}>
+          <thead>
             <tr>
               <th>Grape</th>
               <th>Country</th>
@@ -250,12 +294,29 @@ export default function IndexPage() {
             {uniqueGrapes.map((grape) => generateGrapeRegionRow(grape, grapesWithRegions))}
           </tbody>
         </Table>
-      </ScrollArea>
+      }
 
       <Title order={2} my={5}>By region</Title>
-      <ScrollArea h={"85vh"} type="always">
+      {!printable &&
+        <ScrollArea h={"85vh"} type="always">
+          <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true}>
+            <thead style={{ position: "sticky", top: 0, background: "white" }}>
+              <tr>
+                <th>Country</th>
+                <th>Region</th>
+                <th>Grape</th>
+                <th>Characteristics</th>
+              </tr>
+            </thead>
+            <tbody>
+              {uniqueRegions.map((region) => generateRegionGrapeRow(region, regionsWithGrapes))}
+            </tbody>
+          </Table>
+        </ScrollArea>
+      }
+      {printable &&
         <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true}>
-          <thead style={{ position: "sticky", top: 0, background: "white" }}>
+          <thead>
             <tr>
               <th>Country</th>
               <th>Region</th>
@@ -267,7 +328,7 @@ export default function IndexPage() {
             {uniqueRegions.map((region) => generateRegionGrapeRow(region, regionsWithGrapes))}
           </tbody>
         </Table>
-      </ScrollArea>
+      }
 
       <Title order={1} my={15}>Important numbers</Title>
       <Title order={2} my={5}>Alcohol</Title>
@@ -376,11 +437,13 @@ export default function IndexPage() {
           </tr>
         </tbody>
       </Table>
+      <Title my={15} order={1}>Need printable version?</Title>
+      <Text>Try <Anchor href="?printable">this</Anchor> and then use print function in your browser (works best with landscape mode). It is not perfect but that is all I can do for now.</Text>
       <Title my={15} order={1}>Error? Missing information?</Title>
       <Text>You can report any issues <Anchor href="https://github.com/luksow/wset/issues" target="_blank">here</Anchor> or <Anchor href="https://luksow.com" target="_blank">directly to me.</Anchor></Text>
       <Title my={15} order={1}>Acknowledgments</Title>
       <Text>Prepared based on <q>Wines: Looking behind the label</q> and <q>WSET® Level 2 Award in Wines Workbook</q> by WSET. Special thanks to <Anchor href='https://republikawina.pl/' target="_blank">Republika Wina</Anchor> and my study group for the greatest WSET 2 experience.</Text>
-      <Divider my={20} size={5} variant="dashed" label="Brought to you with ❤️ by @luksow" labelProps={{ component: 'a', href: 'https://www.luksow.com', target: "_blank", variant: 'link', color: 'blue' }}/>
+      <Divider my={20} size={5} variant="dashed" label="Brought to you with ❤️ by @luksow" labelProps={{ component: 'a', href: 'https://www.luksow.com', target: "_blank", variant: 'link', color: 'blue' }} />
     </Container>
   );
 }
