@@ -366,7 +366,7 @@ export default function IndexPage() {
         </tbody>
       </Table>
       <Title order={2} my={5}>Climate</Title>
-      <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true} maw={"250px"}>
+      <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true} maw={"300px"}>
         <tbody>
           <tr>
             <td>Cool</td>
@@ -383,7 +383,7 @@ export default function IndexPage() {
         </tbody>
       </Table>
       <Title order={2} my={5}>Fermentation</Title>
-      <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true} maw={"250px"}>
+      <Table verticalSpacing={"xs"} horizontalSpacing={"xs"} fontSize={"xs"} striped={true} withBorder={true} withColumnBorders={true} maw={"300px"}>
         <tbody>
           <tr>
             <td>White or rosé wines</td>
