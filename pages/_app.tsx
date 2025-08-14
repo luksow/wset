@@ -35,6 +35,7 @@ export default function App(props: AppProps) {
         theme={{
           globalStyles: (theme) => ({
             table: { "page-break-after": "always" },
+            ul:    { "padding-inline-start": "1.2em" },
             tr:    { "page-break-inside": "avoid", "page-break-after": "auto" },
             td:    { "page-break-inside": "avoid", "page-break-after": "auto" },
             thead: { "display": "table-header-group" },
