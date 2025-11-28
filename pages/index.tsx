@@ -1,4 +1,4 @@
-import { Title, Container, Table, Anchor, Badge, ScrollArea, Divider, Text } from "@mantine/core";
+import { Title, Container, Table, Anchor, Badge, ScrollArea, Divider, Text, Button } from "@mantine/core";
 import * as _ from 'lodash';
 import grapesRaw from "./grapes.json";
 import { useRouter } from 'next/router';
@@ -443,6 +443,9 @@ export default function IndexPage() {
       <Text>You can report any issues <Anchor href="https://github.com/luksow/wset/issues" target="_blank">here</Anchor> or <Anchor href="https://luksow.com" target="_blank">directly to me.</Anchor> Please note that this information was sourced from Issue 1 (2019), while the current version is Issue 2 (2023). I am gradually updating this information to align with the new version.</Text>
       <Title my={15} order={1}>Acknowledgments</Title>
       <Text>Prepared based on <q>Wines: Looking behind the label, Issue 1 (2019)</q> and <q>WSET® Level 2 Award in Wines Workbook</q> by WSET. Special thanks to <Anchor href='https://republikawina.pl/' target="_blank">Republika Wina</Anchor> and my study group for the greatest WSET 2 experience.</Text>
+      <Title my={15} order={1}>Keep this project decanting 🍇</Title>
+      <Text>If these notes made your WSET2 journey smoother, consider a small donation. It helps cover costs and motivates more updates. Cheers!</Text>
+      <Button component="a" href="https://donate.stripe.com/14AcN5bXk8QVgnlfzK00000" target="_blank" variant="gradient" gradient={{ from: 'grape', to: 'pink', deg: 35 }} size="md" mt="sm">Donate via Stripe</Button>
       <Divider my={20} size={5} variant="dashed" label="Brought to you with ❤️ by @luksow" labelProps={{ component: 'a', href: 'https://www.luksow.com', target: "_blank", variant: 'link', color: 'blue' }} />
     </Container>
   );
