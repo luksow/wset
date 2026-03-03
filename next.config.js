@@ -2,9 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  images: {
-    domains: ["cdn.buymeacoffee.com"],
-  },
+  images: { unoptimized: true },
 }
 
 module.exports = nextConfig
