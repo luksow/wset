@@ -8,6 +8,7 @@ import {
   Divider,
   Text,
   Button,
+  Paper,
 } from "@mantine/core";
 import * as _ from "lodash";
 import grapesRaw from "./grapes.json";
@@ -666,6 +667,30 @@ export default function IndexPage() {
           </tr>
         </tbody>
       </Table>
+      <Paper
+        withBorder
+        shadow="sm"
+        p="md"
+        my={20}
+        radius="md"
+        style={{ backgroundColor: "#f8f0fc" }}
+      >
+        <Title order={3}>
+          Want to practise daily?
+        </Title>
+        <Text mt={8}>
+          If you want to prepare for the exam using daily exam-style questions
+          and flashcards posted as stories, follow{" "}
+          <Anchor
+            href="https://www.instagram.com/cork.academy"
+            target="_blank"
+            weight={600}
+          >
+            @cork.academy
+          </Anchor>{" "}
+          on Instagram.
+        </Text>
+      </Paper>
       <Title my={15} order={1}>
         Need printable version?
       </Title>
