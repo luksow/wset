@@ -1,0 +1,17 @@
+# 301 migration to corkacademy.com (COR-25). force = true shadows the site
+# content entirely; the domain + TLS stay on Netlify serving these redirects
+# for at least 12 months.
+
+[[redirects]]
+  from = "/"
+  to = "https://corkacademy.com/learn/wset-2/full"
+  status = 301
+  force = true
+  [redirects.query]
+    printable = ":printable"
+
+[[redirects]]
+  from = "/*"
+  to = "https://corkacademy.com/learn/wset-2"
+  status = 301
+  force = true
